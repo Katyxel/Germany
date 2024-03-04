@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+} 
+
+.container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 20px; 
+  width: 100%; 
+}

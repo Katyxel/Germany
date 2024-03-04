@@ -1,0 +1,31 @@
+.header {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  font-weight: bold;
+  font-size: smaller;
+  overflow: hidden;
+
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.header_title {
+  background-color: red;
+}
+
+/* Стили для пунктов меню */
+.navItem {
+  color: #000; /* Цвет текста по умолчанию */
+  transition: color 0.3s; /* Плавное изменение цвета */
+}
+
+/* Стили для пунктов меню при наведении */
+.navItem:hover {
+  color: #c80202eb; /* Новый цвет текста при наведении */
+}

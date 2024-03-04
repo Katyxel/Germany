@@ -1,0 +1,67 @@
+.banner {
+  position: relative;
+  max-width: 1230px;
+  display: flex;
+  width: 100%; 
+  margin: 10px auto;
+  padding: 0 20px; 
+  justify-content: center; /* Выравниваем содержимое по горизонтали */
+  align-items: center; /* Выравниваем содержимое по вертикали */
+}
+
+.banner img {
+  opacity: 0.6;
+}
+
+  
+  .banner-text {
+    position: absolute; 
+    top: 5%; 
+    font-size: 4.5vw;
+    padding: 0;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: #bb0303eb;
+    text-shadow: 2px 2px 4px rgba(30, 28, 28, 0.5); 
+    text-align: center; 
+}
+  
+.banner-list {
+  position: absolute; 
+  top: 20%;
+  text-align: center; 
+  font-size: 40px;
+  font-weight: bold; 
+  color: #080000;
+
+}
+
+.banner-descr {
+  position: absolute; 
+  top: 43%;
+  font-size: 25px;
+  font-weight: bold; 
+  color: #080000;
+  padding-left: 20px; /* добавляем внутренний отступ слева для отделения маркера от текста */
+
+}
+
+
+.apply-button {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%); /* Чтобы центрировать по ширине */
+  background-color:#2b2727; ; /* Темно-серый фон */
+  color: #fff; /* Белый текст */
+  padding: 10px 20px; /* Отступы */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Скругление углов */
+  cursor: pointer; /* Курсор при наведении */
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.apply-button:hover {
+  background-color: #f5cc02; /* Смена цвета на зеленый при наведении */
+}
