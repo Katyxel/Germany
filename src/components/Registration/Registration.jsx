@@ -5,35 +5,50 @@ import Image from 'next/image';
 import close from '../../../public/images/kisspng-rectangle-symbol-cancel-button-5abbe10edafc41.305761701522262286897.jpg';
 import { useAuth } from "../../hooks/UseAuth"; // Поменяли импорт
 
+/**
+ * Компонент формы регистрации пользователя.
+ * 
+ * @param {function} closeModal - Функция для закрытия модального окна.
+ * @returns {JSX.Element} Компонент формы регистрации пользователя.
+ */
 const RegistrationForm = ({ closeModal }) => {
-  const { login } = useAuth(); // Используем хук useAuth
+  const { register } = useAuth(); // Используем хук useAuth для регистрации
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  /**
+   * Обработчик отправки формы регистрации.
+   * 
+   * @param {Event} e - Событие отправки формы.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
-      await axios.post('http://localhost:3004/logins', { name, email, password });
-      console.log("Заявка успешно отправлена");
-      setSuccessMessage("Регистрация успешно выполнена!");
-      setName("");
-      setEmail("");
-      setPassword("");
-      setError("");
-      setSuccessMessage("Вы зарегистрировались!");
-      setTimeout(() => {
-        setSuccessMessage("");
-        closeModal();
-        login(); // Вызываем функцию login для установки статуса аутентификации в true
-      }, 3000);
+      // Вызываем функцию register для регистрации пользователя
+      const success = await register({ name, email, password });
+      if (success) {
+        console.log("Регистрация успешно выполнена");
+        setSuccessMessage("Регистрация успешно выполнена!");
+        setName("");
+        setEmail("");
+        setPassword("");
+        setError("");
+        setSuccessMessage("Вы зарегистрировались!");
+        setTimeout(() => {
+          setSuccessMessage("");
+          closeModal();
+        }, 3000);
+      } else {
+        setError("Произошла ошибка при регистрации");
+      }
 
     } catch (error) {
-      console.error("Ошибка при отправке заявки:", error);
-      setError("Произошла ошибка при отправке заявки");
+      console.error("Ошибка при регистрации:", error);
+      setError("Произошла ошибка при регистрации");
     }
   };
 
@@ -62,4 +77,3 @@ const RegistrationForm = ({ closeModal }) => {
 };
 
 export default RegistrationForm;
-
