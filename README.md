@@ -20,7 +20,6 @@ Germany is an application, that has been written with using React.js library and
 
 ## Used technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - about Next.js features and API.
 - [Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [React.dev](https://react.dev/learn) - a React tutorial.
 - [Axios](https://axios-http.com/) -  a promise based HTTP client for the browser and node.js.
