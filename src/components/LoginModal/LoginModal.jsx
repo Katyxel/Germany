@@ -5,57 +5,63 @@ import Image from 'next/image';
 import close from '../../../public/images/kisspng-rectangle-symbol-cancel-button-5abbe10edafc41.305761701522262286897.jpg';
 import { useAuth } from "../../hooks/UseAuth"; 
 
-/**
- * Компонент формы регистрации пользователя.
- * 
- * @param {function} closeModal - Функция для закрытия модального окна.
- * @returns {JSX.Element} Компонент формы регистрации пользователя.
- */
-const RegistrationForm = ({ closeModal }) => {
-  const { register } = useAuth(); // Используем хук useAuth для регистрации
-  const [name, setName] = useState("");
+const LoginModal = ({ closeModal }) => {
+  const { login } = useAuth(); // Используем хук useAuth
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isLoginDisabled, setIsLoginDisabled] = useState(false);
 
-  /**
-   * Обработчик отправки формы регистрации.
-   * 
-   * @param {Event} e - Событие отправки формы.
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    try {
-      // Вызываем функцию register для регистрации пользователя
-      const success = await register({ name, email, password });
-      if (success) {
-        console.log("Регистрация успешно выполнена");
-        setSuccessMessage("Регистрация успешно выполнена!");
-        setName("");
-        setEmail("");
-        setPassword("");
-        setError("");
-        setSuccessMessage("Вы зарегистрировались!");
-        setTimeout(() => {
-          setSuccessMessage("");
-          closeModal();
-        }, 3000);
-      } else {
-        setError("Произошла ошибка при регистрации");
-      }
+    setError("");
+    setLoading(true);
 
-    } catch (error) {
-      console.error("Ошибка при регистрации:", error);
-      setError("Произошла ошибка при регистрации");
+    const checkUserExists = async (email) => {
+      try {
+        const response = await axios.get(`http://localhost:3004/logins?email=${email}`);
+        return response.data.length > 0;
+      } catch (error) {
+        console.error("Ошибка при проверке пользователя:", error);
+        return false;
+      }
+    };
+
+    try {
+      const userExists = await checkUserExists(email);
+  
+      if (userExists) {
+        setSuccessMessage("Вход успешно выполнен!");
+        // Получаем пользователя с помощью запроса и передаем его id в функцию handleLoginSuccess
+        const response = await axios.get(`http://localhost:3004/logins?email=${email}`);
+        const user = response.data[0];
+        handleLoginSuccess(user.id);
+      } else {
+        setError("Пользователь с таким email не найден. Пожалуйста, зарегистрируйтесь!");
+        setIsLoginDisabled(true);
+      }
+    } catch (error) { 
+      setError("Произошла ошибка при входе. Пожалуйста, попробуйте еще раз.");
+      console.error("Ошибка при входе:", error);
     }
+    setLoading(false);
+  };
+
+  const handleLoginSuccess = (userId) => {
+    // Устанавливаем состояние аутентификации и userId
+    login(userId);
+    // Закрываем модальное окно через 3 секунды
+    setTimeout(() => {
+      closeModal();
+    }, 3000);
   };
 
   return (
     <div className={styles.modalBackdrop} onClick={closeModal}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-      <div className={styles.closeButton} onClick={closeModal}>
+        <div className={styles.closeButton} onClick={closeModal}>
           <Image
             src={close}
             alt="Close"
@@ -63,11 +69,12 @@ const RegistrationForm = ({ closeModal }) => {
             height={24}
           />
         </div>
-        <form className={styles.modalForm} onSubmit={handleSubmit}>
-          <input type="text" placeholder="Имя" value={name} onChange={(e) => setName(e.target.value)} required />
+        <form onSubmit={handleSubmit}>
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           <input type="password" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <button type="submit" className={styles.modalButton}>Зарегистрироваться</button>
+          <button type="submit" disabled={isLoginDisabled} className={isLoginDisabled ? `${styles.disabledButton} ${styles.loginButton}` : `${styles.loginButton}`}>
+            {loading ? "Загрузка..." : "Войти"}
+          </button>
         </form>
         {error && <p className={styles.error}>{error}</p>}
         {successMessage && <p className={styles.success}>{successMessage}</p>}
@@ -76,4 +83,4 @@ const RegistrationForm = ({ closeModal }) => {
   );
 };
 
-export default RegistrationForm;
+export default LoginModal;
