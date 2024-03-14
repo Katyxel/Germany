@@ -3,8 +3,7 @@ import Forum from '../components/Forum/Forum'; // Импортируем ком�
 
 const ForumPage = () => {
   return (
-    <div div className="container">
-      <h1>Форум</h1>
+    <div className="container">
       {/* Вставляем компонент форума */}
       <Forum />
     </div>
