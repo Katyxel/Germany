@@ -1,0 +1,77 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  .imageContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 5px;
+    justify-content: space-between;
+  }
+  
+  .itemContainer {
+    width: 290px;
+    height: 330px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 5px;
+    justify-content: space-between;
+    height: 400px; /* Задаем фиксированную высоту */
+    border-radius: 12px; /* Скругляем углы */
+  }
+  
+  .itemContainer img {
+      width: 100%; /* Задаем ширину 100%, чтобы изображение занимало всю доступную ширину контейнера */
+      height: 83%; /* Задаем высоту 100%, чтобы изображение занимало всю доступную высоту контейнера */
+      object-fit: cover;
+      padding: 0;
+      border-radius: 12px; 
+    }
+  
+    .buttonContainer {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      margin: 120px;
+      padding: 50px; /* Добавим немного отступа для кнопок */
+    }
+  
+  .buttonContainer button {
+    margin: 0 50px; /* Добавим небольшие отступы между кнопками */
+  }
+  
+  .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      color: white;
+      margin: 0; /* Добавляем отступы */
+    }
+    
+    .overlay h3 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 16px; /* Размер шрифта для имени-фамилии */
+    }
+    
+    .overlay p {
+      margin: 0;
+      font-size: 14px; /* Размер шрифта для должности */
+    }
