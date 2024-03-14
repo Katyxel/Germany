@@ -4,6 +4,12 @@ import styles from "./Modal.module.css";
 import Image from 'next/image';
 import close from '../../../public/images/kisspng-rectangle-symbol-cancel-button-5abbe10edafc41.305761701522262286897.jpg';
 
+/**
+ * Компонент модального окна для отправки заявки.
+ * 
+ * @component
+ * @param {Function} closeModal - Функция для закрытия модального окна
+ */
 const Modal = ({ closeModal }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -11,33 +17,45 @@ const Modal = ({ closeModal }) => {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  /**
+   * Обработчик отправки формы заявки.
+   * Проверяет корректность заполнения полей формы и отправляет данные на сервер.
+   * @param {Event} e - Событие отправки формы
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Проверка корректности имени
     if (!name.match(/^[A-Za-zА-Яа-яЁё]+$/)) {
       setError("Пожалуйста, введите корректное имя");
       return;
     }
+    // Проверка корректности номера телефона
     if (!phone.match(/^\d{10}$/)) {
       setError("Пожалуйста, введите корректный номер телефона без +7, в формате 9050000000");
       return;
     }
+    // Проверка корректности email
     if (!email.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[\w-]{1,}$/)) {
       setError("Пожалуйста, введите корректный email");
       return;
     }
     
     try {
+      // Отправка данных на сервер
       await axios.post('http://localhost:3004/applications', { name, phone, email });
       console.log("Заявка успешно отправлена");
+      // Очистка полей формы и сообщения об ошибке
       setName("");
       setPhone("");
       setEmail("");
-      setError(""); // Очистить сообщение об ошибке
+      setError("");
+      // Отображение сообщения об успешной отправке
       setSuccessMessage("Заявка успешно отправлена!");
+      // Закрытие модального окна через 3 секунды
       setTimeout(() => {
         setSuccessMessage("");
-        closeModal(); // Закрыть модальное окно после 3 секунд
-      }, 3000); // Скрыть сообщение через 3 секунды
+        closeModal();
+      }, 3000);
     } catch (error) {
       console.error("Ошибка при отправке заявки:", error);
       setError("Произошла ошибка при отправке заявки");
@@ -69,5 +87,3 @@ const Modal = ({ closeModal }) => {
 };
 
 export default Modal;
-
-

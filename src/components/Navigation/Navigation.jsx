@@ -5,12 +5,19 @@ import Link from 'next/link';
 import LoginModal from "../LoginModal/LoginModal";
 import RegistrationForm from "../Registration/Registration";
 
+/**
+ * Компонент навигации.
+ * @returns {JSX.Element} Элемент навигации.
+ */
 const Navigation = ()  => {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
 
-  // Определение navItems внутри функции Navigation
+  /**
+   * Элементы навигации.
+   * @type {Array<{ name: string, path: string }>}
+   */
   const navItems = [
     { name: "ВИЗА", path: "/visa" },
     { name: "РАБОТА", path: '/work' },
@@ -21,16 +28,30 @@ const Navigation = ()  => {
     { name: "ФОРУМ", path: "/forum" },
   ];
 
+  /**
+   * Путь активного элемента навигации.
+   * @type {string}
+   */
   const activeLink = navItems.find(item => item.path === router.pathname)?.path || "";
 
+  /**
+   * Обработчик клика по элементу навигации.
+   * @param {string} path Путь элемента навигации.
+   */
   const onClickHandler = (path) => {
     router.push(path);
   };
 
+  /**
+   * Открыть модальное окно для входа.
+   */
   const openModal = () => {
     setIsModalOpen(true);
   };
 
+  /**
+   * Открыть модальное окно для регистрации.
+   */
   const openRegistrationModal = () => {
     setIsRegistrationModalOpen(true);
   };
