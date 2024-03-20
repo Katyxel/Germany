@@ -2,16 +2,8 @@ import React from "react";
 import Head from "next/head";
 import Banner from "../components/Banner/Banner";
 import Bannerdown from "../components/Bannerdown/Bannerdown";
-import { Montserrat } from "next/font/google";
 import Slider from "../components/Slider/Slider";
 import Table from "../components/Table/Table";
-
-// Вызываем функцию Montserrat и присваиваем результат константе
-const montserratStyles = Montserrat({
-  subsets: ["cyrillic"],
-  display: "swap",
-  weight: ["400", "500", "700"],
-});
 
 const Home = () => (
   <>
@@ -34,13 +26,7 @@ const Home = () => (
         <Bannerdown />
       </div>
     </main>
-    <style jsx global>{`
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
-      /* Добавляем шрифт Montserrat напрямую к заголовку */
-      .font-montserrat {
-        font-family: "Montserrat", sans-serif;
-      }
-    `}</style>
+
   </>
 );
 

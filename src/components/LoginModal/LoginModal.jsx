@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styles from "../Modal/Modal.module.css";
 import Image from 'next/image';
-import close from '../../../public/images/kisspng-rectangle-symbol-cancel-button-5abbe10edafc41.305761701522262286897.jpg';
+import close from '../../../public/images/cross-small-svgrepo-com.svg';
 import { useAuth } from "../../hooks/UseAuth"; 
 
 const LoginModal = ({ closeModal }) => {

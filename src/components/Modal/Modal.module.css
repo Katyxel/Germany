@@ -1,80 +1,81 @@
-  .modalBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(34, 32, 32, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1; /* Поднимаем модальное окно над остальным контентом */
-  }
-  
-  .modalContent h3 {
-    margin-bottom: 10px;
-  }
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 32, 32, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Поднимаем модальное окно над остальным контентом */
+}
 
-  .modalContent {
-    background-color: #363431;
-    padding: 20px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column; /* Поля ввода будут расположены вертикально */
-    width: 400px;
-    position: relative;
-  }
-  
-  .modalContent form {
-    display: flex;
-    flex-direction: column; /* Поля ввода будут расположены вертикально */
-  }
-  
-  .modalContent input,
-  .modalContent button {
-    border: 1px solid #ccc; /* Добавляем границы для инпутов */
-  border-radius: 3px; /* Скругляем углы */
-  padding: 8px; /* Добавляем внутренние отступы */
-    margin-bottom: 20px; /* Добавим небольшой отступ между элементами */
-  }
+.modalContent h3 {
+  margin-bottom: 10px;
+}
 
-  .modalContent button {
-    background-color: #f5cc02; 
-  }
+.modalContent {
+  background-color: #363431;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column; /* Поля ввода будут расположены вертикально */
+  width: 400px;
+  position: relative;
+}
 
-  .closeButton {
-    position: absolute; /* Размещаем кнопку абсолютно внутри контейнера */
-    top: 5px; /* Располагаем кнопку относительно верхнего края контейнера */
-    right: 5px; /* Располагаем кнопку относительно правого края контейнера */
-    cursor: pointer;
-    width: 12px;
-    border-radius: 3px; 
-    border: 1px solid black
-  }
-  
-  .closeButton:hover {
-    color: red; /* Изменяем цвет крестика при наведении */
-  }
+.modalContent form {
+  display: flex;
+  flex-direction: column; /* Поля ввода будут расположены вертикально */
+}
 
-  .error {
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  .success {
-    background-color: #4caf50; /* Зеленый цвет фона */
-    color: white; /* Белый цвет текста */
-    padding: 15px;
-    border-radius: 5px;
-  }
+.modalContent input,
+.modalContent button {
+  border: 1px solid #ccc; /* Добавляем границы для инпутов */
+border-radius: 3px; /* Скругляем углы */
+padding: 8px; /* Добавляем внутренние отступы */
+  margin-bottom: 20px; /* Добавим небольшой отступ между элементами */
+}
 
-  .custom-button {
-    background-color: #EF4444;
-    color: #FFFFFF;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-  }
+.modalContent button {
+  background-color: #f5cc02; 
+}
+
+.closeButton {
+  position: absolute; /* Размещаем кнопку абсолютно внутри контейнера */
+  top: 5px; /* Располагаем кнопку относительно верхнего края контейнера */
+  right: 5px; /* Располагаем кнопку относительно правого края контейнера */
+  cursor: pointer;
+  width: 14px;
+
+}
+
+.closeButton:hover {
+  background-color: rgb(101, 93, 93); /* Изменяем цвет крестика при наведении */
+border-radius: 5px;
+}
+
+.error {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.success {
+  background-color: #4caf50; /* Зеленый цвет фона */
+  color: white; /* Белый цвет текста */
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.custom-button {
+  background-color: #EF4444;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+

@@ -1,7 +1,14 @@
 import React from "react";
 
-const User = () => {
-  return <div className="container">Страница user</div>;
+import AccordionComponent from '../components/Accordion/Accordion'; // Импортируем компонент форума
+
+const FeedbackPage = () => {
+  return (
+    <div className="container">
+      {/* Вставляем компонент форума */}
+      <AccordionComponent />
+    </div>
+  );
 };
 
-export default User;
+export default FeedbackPage;
