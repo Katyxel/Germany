@@ -6,8 +6,6 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
-  UnorderedList,
-  ListItem,
 } from "@chakra-ui/react";
 
 const AccordionProposes = () => {
@@ -20,7 +18,7 @@ const AccordionProposes = () => {
               as="span"
               flex="1"
               textAlign="left"
-              bg="grey"
+              bg="#374151"
               w="100%"
               p={4}
               color="white"
@@ -50,7 +48,7 @@ const AccordionProposes = () => {
               as="span"
               flex="1"
               textAlign="left"
-              bg="grey"
+              bg="#374151"
               w="100%"
               p={4}
               color="white"
@@ -79,7 +77,7 @@ const AccordionProposes = () => {
               as="span"
               flex="1"
               textAlign="left"
-              bg="grey"
+              bg="#374151"
               w="100%"
               p={4}
               color="white"
@@ -101,8 +99,90 @@ const AccordionProposes = () => {
           Германии оплачиваются отдельно.
         </AccordionPanel>
       </AccordionItem>
+
+      <AccordionItem>
+        <h2>
+          <AccordionButton>
+            <Box
+              as="span"
+              flex="1"
+              textAlign="left"
+              bg="#374151"
+              w="100%"
+              p={4}
+              color="white"
+            >
+              Заполнение анкеты на визу для посольства
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Box as="h2" fontWeight="bold" mb={4}>
+            60€
+          </Box>
+          Многие вопросы в анкете на визу вызывают затруднения. Многие из них являются решающими при выдаче визы. Мы заполним анкету за вас и дадим комментарии к пунктам, по которым чаще всего задают вопросы в посольстве.
+        </AccordionPanel>
+      </AccordionItem>
+
+      <AccordionItem>
+        <h2>
+          <AccordionButton>
+            <Box
+              as="span"
+              flex="1"
+              textAlign="left"
+              bg="#374151"
+              w="100%"
+              p={4}
+              color="white"
+            >
+              Сопровождение первого месяца в Германии онлайн
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Box as="h2" fontWeight="bold" mb={4}>
+            400€
+          </Box>
+          После получения заветной визы ваши приключения с немецкой бюрократией только начинаются. И мы готовы вам в этом помочь. В пакет входит поддержка по регистрация по месту жительства, оформлению страховки Krankenkasse, открытию банковского счёта, сбору документов и записи на получение карточкм ВНЖ Aufenthaltstitel.<br></br>
+          Также обеспечивается поддержка по типичным бытовым вопросам: советы по магазинам, полезным сайтам, транспорте и т. п.
+          <br></br><br></br>
+          На протяжении первого месяца пребывания в Германии мы будем с вами на связи в будние дни по любым из вышеперечисленных вопросов. Составим для вас индивидуальный план действий, запишем вас во все необходимые организации, и проинструктируем по документам. 
+        </AccordionPanel>
+      </AccordionItem>
+
+      <AccordionItem>
+        <h2>
+          <AccordionButton>
+            <Box
+              as="span"
+              flex="1"
+              textAlign="left"
+              bg="#374151"
+              w="100%"
+              p={4}
+              color="white"
+            >
+              Сопровождение первого месяца в Германии онлайн
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Box as="h2" fontWeight="bold" mb={4}>
+            400€
+          </Box>
+          После получения заветной визы ваши приключения с немецкой бюрократией только начинаются. И мы готовы вам в этом помочь. В пакет входит поддержка по регистрация по месту жительства, оформлению страховки Krankenkasse, открытию банковского счёта, сбору документов и записи на получение карточкм ВНЖ Aufenthaltstitel.<br></br>
+          Также обеспечивается поддержка по типичным бытовым вопросам: советы по магазинам, полезным сайтам, транспорте и т. п.
+          <br></br><br></br>
+          На протяжении первого месяца пребывания в Германии мы будем с вами на связи в будние дни по любым из вышеперечисленных вопросов. Составим для вас индивидуальный план действий, запишем вас во все необходимые организации, и проинструктируем по документам. 
+        </AccordionPanel>
+      </AccordionItem>
     </Accordion>
   );
 };
 
 export default AccordionProposes;
+

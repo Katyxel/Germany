@@ -5,10 +5,10 @@ import styles from "./Banner.module.css";
 import Modal from "../Modal/Modal";
 
 /**
- * Компонент баннера, который отображает основную информацию о предложении.
- * 
+ * Компонент баннера, который отображает основную информацию.
  * @component
  */
+
 const Banner = () => {
   const [showModal, setShowModal] = useState(false);
 

@@ -3,17 +3,34 @@ import CardsComponent from "../components/Cards/Cards";
 import Slider from "../components/Slider/Slider";
 import AccordionComponent from "../components/Accordion/Accordion";
 import AccordionProposes from "../components/AccordionProposes/AccordionProposes";
+import Modal from "../components/Modal/Modal";
+
 import {
   Divider,
   Box,
   AbsoluteCenter,
   UnorderedList,
   ListItem,
-  Stack,
-  Text
 } from "@chakra-ui/react";
 
+
 const WorkPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+/**
+   * Функция для открытия модального окна.
+   */
+const openModal = () => {
+  setShowModal(true);
+};
+
+/**
+ * Функция для закрытия модального окна.
+ */
+const closeModal = () => {
+  setShowModal(false);
+};
+
   return (
     <div className="py-10 container">
       <div className="mx-auto flex flex-col justify-center items-center">
@@ -30,6 +47,14 @@ const WorkPage = () => {
       </div>
       {/* Вставляем компонент карточек */}
       <CardsComponent />
+      <button
+  className="mx-auto flex flex-col justify-center items-center
+    bg-gray-800 text-white py-4 px-4 rounded-lg cursor-pointer text-2xl font-bold hover:bg-yellow-500"
+    onClick={openModal}
+    style={{ marginBottom: "20px", marginTop: "20px", width: "auto", height: "auto" }}
+  >
+    Получить консультацию
+  </button>
       <h1 className="text-5xl text-center font-bold text-gray-800 my-14">
         С Вами работают
       </h1>
@@ -139,7 +164,23 @@ const WorkPage = () => {
         </div>
       </div>
       <AccordionProposes />
-    </div>
+
+            {/* Отображение модального окна при условии, что showModal === true */}
+            {showModal && <Modal closeModal={closeModal} />}
+         {/* Кнопка для открытия модального окна */}
+         <div className="relative mb-8">
+  <button
+  className="mx-auto flex flex-col justify-center items-center
+    bg-gray-800 text-white py-4 px-4 rounded-lg cursor-pointer text-4xl font-bold bottom-8 hover:bg-yellow-500"
+    onClick={openModal}
+    style={{ marginBottom: "20px", marginTop: "20px", width: "auto", height: "auto" }}
+  >
+    Заказать услуги
+  </button>
+</div>
+</div>
+
+    
   );
 };
 

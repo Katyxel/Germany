@@ -20,7 +20,7 @@ const AccordionComponent = () => {
               as="span"
               flex="1"
               textAlign="left"
-              bg="grey"
+              bg="#374151"
               w="100%"
               p={4}
               color="white"
@@ -79,7 +79,7 @@ const AccordionComponent = () => {
               as="span"
               flex="1"
               textAlign="left"
-              bg="grey"
+              bg="#374151"
               w="100%"
               p={4}
               color="white"
@@ -115,7 +115,7 @@ const AccordionComponent = () => {
               as="span"
               flex="1"
               textAlign="left"
-              bg="grey"
+              bg="#374151"
               w="100%"
               p={4}
               color="white"
