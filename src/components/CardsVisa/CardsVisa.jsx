@@ -19,15 +19,15 @@ const scrollToSection = (id) => {
     }
   };
 
-const CardsStudy = () => {
+const CardsVisa = () => {
   return (
     <div className="flex flex-wrap justify-center">
       <Card maxW="sm" className="m-6">
         <CardBody>
           <Image
-            src="/images/studenty-v-germanii.jpg"
-            width={400}
-            height={300}
+            src="/images/immigration.jpg"
+            width={500}
+            height={400}
             alt="study"
             borderRadius="lg"
           />
@@ -50,9 +50,9 @@ const CardsStudy = () => {
       <Card maxW="sm" className="m-6">
         <CardBody>
           <Image
-            src="/images/vus2.jpeg"
-            width={400}
-            height={300}
+            src="/images/immigr.jpg"
+            width={500}
+            height={400}
             alt="Proposes"
             borderRadius="lg"
           />
@@ -76,4 +76,4 @@ const CardsStudy = () => {
   );
 };
 
-export default CardsStudy;
+export default CardsVisa;

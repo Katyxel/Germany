@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Banner from "../components/Banner/Banner";
-import Bannerdown from "../components/Bannerdown/Bannerdown";
+import Bannerdown from "../components/BannerDown/BannerDown";
 import Slider from "../components/Slider/Slider";
 import Table from "../components/Table/Table";
 
@@ -13,20 +13,21 @@ const Home = () => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
     <main>
-      <div>
+      <div className="container">
+        {" "}
+        {/* Добавлен контейнер здесь */}
         <Banner />
         <h2 className="text-5xl text-center font-bold text-gray-800 my-14">
           Почему мы
         </h2>
         <Table />
-        <h1 className="text-5xl text-center font-bold text-gray-800 my-14">
+        <h2 className="text-5xl text-center font-bold text-gray-800 my-14">
           С Вами работают
-        </h1>
+        </h2>
         <Slider />
         <Bannerdown />
       </div>
     </main>
-
   </>
 );
 

@@ -10,7 +10,7 @@ import Modal from "../Modal/Modal";
  */
 
 const Banner = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [IsShowModal, setShowModal] = useState(false);
 
   /**
    * Функция для открытия модального окна.
@@ -29,7 +29,7 @@ const Banner = () => {
   return (
     <div className={styles.banner}>
       {/* Отображение модального окна при условии, что showModal === true */}
-      {showModal && <Modal closeModal={closeModal} />}
+      {IsShowModal && <Modal closeModal={closeModal} />}
       {/* Отображение изображения баннера */}
       <Image src={bann} alt="Баннер" className="banner-image" priority={true} />
       {/* Заголовок баннера */}

@@ -55,15 +55,15 @@ const closeModal = () => {
   >
     Получить консультацию
   </button>
-      <h1 className="text-5xl text-center font-bold text-gray-800 my-14">
+      <h2 className="text-5xl text-center font-bold text-gray-800 my-14">
         С Вами работают
-      </h1>
+      </h2>
       <Slider />
       <div className="mx-auto flex flex-col justify-center items-center">
         <div className="bg-yellow-500 w-full flex justify-center items-center p-8">
-          <h1 id="programmers" className="text-gray-800 text-4xl font-bold">
+          <h2 id="programmers" className="text-gray-800 text-4xl font-bold">
             РАБОТА В ГЕРМАНИИ ДЛЯ ПРОГРАММИСТОВ
-          </h1>
+          </h2>
         </div>
         <div className="bg-white w-full p-8">
           <p className="text-gray-800 text-xl text-center font-bold">
@@ -76,9 +76,9 @@ const closeModal = () => {
       <AccordionComponent />
       <div className="mx-auto flex flex-col justify-center items-center mt-10">
         <div className="bg-yellow-500 w-full flex justify-center items-center p-8">
-          <h1 id="packege" className="text-gray-800 text-4xl font-bold">
+          <h2 id="packege" className="text-gray-800 text-4xl font-bold">
             ПАКЕТ УСЛУГ ДЛЯ ПЕРЕЕЗДА ПО РАБОТЕ
-          </h1>
+          </h2>
         </div>
         <div className="bg-white w-full p-8">
           <p className="text-gray-800 text-xl text-center font-bold">
@@ -96,9 +96,9 @@ const closeModal = () => {
           </p>
         </AbsoluteCenter>
       </Box>
-      <h1 className="text-gray-800 text-xl font-bold mb-5">
+      <h2 className="text-gray-800 text-xl font-bold mb-5">
         Личный чат с нашим специалистом
-      </h1>
+      </h2>
       <UnorderedList>
         <ListItem>
           Для поиска работы в Германии необходимо сильное, продающее резюме. Мы
@@ -151,9 +151,9 @@ const closeModal = () => {
 
 <div className="mx-auto flex flex-col justify-center items-center">
         <div className="bg-yellow-500 w-full flex justify-center items-center p-8 mt-10">
-          <h1 id="proposes" className="text-gray-800 text-4xl font-bold">
+          <h2 id="proposes" className="text-gray-800 text-4xl font-bold">
             ОТДЕЛЬНЫЕ УСЛУГИ
-          </h1>
+          </h2>
         </div>
         <div className="bg-white w-full p-8">
           <p className="text-gray-800 text-xl text-center font-bold">

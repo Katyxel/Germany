@@ -14,9 +14,9 @@ import { useAuth } from "../../hooks/UseAuth";
 const CommentList = ({ comments, setComments, isAuthenticated }) => {
   const { userId } = useAuth();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [editingCommentId, setEditingCommentId] = useState(null);
-  const [editedCommentText, setEditedCommentText] = useState("");
+  const [error, setError] = useState(null); // стейт для ошибки
+  const [editingCommentId, setEditingCommentId] = useState(null);// стейт для установки id редактируемого комментария 
+  const [editedCommentText, setEditedCommentText] = useState("");// стект для 
 
   useEffect(() => {
     /**
@@ -52,12 +52,15 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
    */
   const handleSaveEdit = async () => {
     try {
+      const currentDate = new Date().toISOString(); // Получаем текущую дату и время
       await axios.put(`http://localhost:3004/comments/${editingCommentId}`, {
         text: editedCommentText,
+        userId: userId, // Передаем текущий userId
+        date: currentDate, // Обновляем дату изменения комментария
       });
       const updatedComments = comments.map((comment) =>
         comment.id === editingCommentId
-          ? { ...comment, text: editedCommentText }
+          ? { ...comment, text: editedCommentText, date: currentDate } // Обновляем комментарий с новым текстом и датой изменения
           : comment
       );
       setComments(updatedComments);
