@@ -66,7 +66,12 @@ const Forum = () => {
               {isAuthenticated ? (
                 <div>
                   <CommentInput addComment={(text) => addComment(text, userId)} setNewCommentId={setNewCommentId} />
-                  <button onClick={handleLogout}>Log Out</button>
+                  <button 
+  onClick={handleLogout} 
+  className="bg-red-800 hover:bg-gray-500 text-white py-1 px-2 rounded-md"
+>
+ Выйти
+</button>
                 </div>
               ) : (
                 <div>

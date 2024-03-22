@@ -1,18 +1,32 @@
 .header {
+  /* Основной фон заголовка */
   background-color: #fff;
+  /* Определение расположения элементов внутри заголовка */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* Минимальная высота заголовка */
   min-height: 70px;
+  /* Настройки шрифта */
   font-weight: bold;
   font-size: smaller;
+  /* Переполнение содержимого, скрытого, если оно выходит за пределы */
   overflow: hidden;
+  /* Максимальная ширина заголовка */
+  max-width: 1230px;
+  /* Центрирование заголовка на странице */
+  margin: 0 auto;
+  /* Внутренние отступы заголовка */
+  padding: 0 20px;
+  /* Ширина заголовка в процентах */
+  width: 100%;
 
+  /* Параметры тени */
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
     0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* Применение тени к заголовку */
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #c6b6b600), 0 1px 0 #e1dbdb; /* Только нижняя тень */
 }
 
 .header_title {
@@ -28,4 +42,9 @@
 /* Стили для пунктов меню при наведении */
 .navItem:hover {
   color: #c80202eb; /* Новый цвет текста при наведении */
+}
+
+/* Стили для активного пункта меню */
+.activeNavItem {
+  color: #c80202eb; /* Цвет текста для активного пункта */
 }

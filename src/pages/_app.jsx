@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }) => {
     <>
       <ChakraProvider>
         <Head>
-          <title>My first template</title>
+          <title>LifeInGermany</title>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <style jsx global>{`

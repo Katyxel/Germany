@@ -23,7 +23,6 @@ const Navigation = ()  => {
     { name: "РАБОТА", path: '/work' },
     { name: "УЧЁБА", path: "/student" },
     { name: "КУРСЫ ЯЗЫКА", path: "/courses" },
-    { name: "КОНСУЛЬТАЦИЯ", path: "/consult" },
     { name: "ОТЗЫВЫ", path: "/feedbacks" },
     { name: "ФОРУМ", path: "/forum" },
   ];
@@ -41,7 +40,7 @@ const Navigation = ()  => {
   const onClickHandler = (path) => {
     router.push(path);
   };
-
+  
   /**
    * Открыть модальное окно для входа.
    */
@@ -57,11 +56,11 @@ const Navigation = ()  => {
   };
 
   return (
-    <header className={styles.header}>
+    <header className= {styles.header}>
     <div className="container flex justify-between items-center">
       <div className="flex items-center">
         <Link href="/" passHref className="inline-flex items-center">
-          <svg onClick={() => window.location.href = "/"} width="200" height="130" viewBox="0 0 242 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="200" height="130" viewBox="0 0 242 144" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_0_1)">
 <path d="M170 69L160.132 87.0771V89.9755L150 104L159.068 87.099L150 74.6667L157.358 82.1333L159.391 85.6771C159.416 85.7208 159.49 85.8813 159.613 86.1583H159.632C159.674 86.0344 159.754 85.874 159.872 85.6771L162 82.1333L170 69Z" fill="black"/>
 <path d="M148.4 94.4023H147.009L142.025 87.7051C141.899 87.5371 141.795 87.3613 141.714 87.1777H141.673C141.71 87.3574 141.728 87.7422 141.728 88.332V94.4023H140.593V86H142.065L146.914 92.5918C147.117 92.8652 147.247 93.0527 147.306 93.1543H147.333C147.288 92.9121 147.265 92.5 147.265 91.918V86H148.4V94.4023Z" fill="black"/>
@@ -122,20 +121,22 @@ const Navigation = ()  => {
         ))}
       </nav>
     </div>
-    <button
-          className="bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-1 px-2 rounded"
-          style={{ height: '30px' }}
-          onClick={openModal} 
-        >
-          Log In
-        </button>
-        <button
-          className="bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-1 px-2 rounded"
-          style={{ height: '30px' }}
-          onClick={openRegistrationModal} 
-        >
-          Sign In
-        </button>
+    <div className="buttons-container">
+          <button
+            className="bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-1 px-2 rounded mr-3"
+            style={{ height: '30px' }}
+            onClick={openModal} 
+          >
+            Войти
+          </button>
+          <button
+            className="bg-red-700 hover:bg-red-500 text-white font-bold py-1 px-2 rounded"
+            style={{ height: '30px' }}
+            onClick={openRegistrationModal} 
+          >
+            Регистрация
+          </button>
+        </div>
       </div>
       {isModalOpen && <LoginModal closeModal={() => setIsModalOpen(false)} />} 
       {isRegistrationModalOpen && <RegistrationForm closeModal={() => setIsRegistrationModalOpen(false)} />} 

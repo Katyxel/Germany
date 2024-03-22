@@ -101,13 +101,7 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
         <ul className="divide-y divide-gray-300">
           {comments.map((comment) => (
             <li key={comment.id} className="py-2">
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
+              <div className="flex justify-between items-center">
                 <div>
                   {editingCommentId === comment.id ? (
                     <textarea
@@ -126,13 +120,13 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
                 {isAuthenticated && userId === comment.userId && (
                   <div>
                     {editingCommentId === comment.id ? (
-                      <button onClick={handleSaveEdit}>Сохранить</button>
+                      <button className="bg-green-500 text-white py-1 px-2 rounded-md mr-2" onClick={handleSaveEdit}>Сохранить</button>
                     ) : (
-                      <button onClick={() => handleEdit(comment.id)}>
+                      <button className="bg-gray-500 text-white py-1 px-2 rounded-md mr-2" onClick={() => handleEdit(comment.id)}>
                         Изменить
                       </button>
                     )}
-                    <button onClick={() => handleDelete(comment.id)}>
+                    <button className="bg-red-500 text-white py-1 px-2 rounded-md" onClick={() => handleDelete(comment.id)}>
                       Удалить
                     </button>
                   </div>
