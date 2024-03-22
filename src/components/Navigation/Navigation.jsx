@@ -110,14 +110,12 @@ const Navigation = ()  => {
 <nav className={`${styles.nav} inline-flex items-center gap-14`}>
         {navItems.map((item) => (
           <a
-            key={item.path}
-            onClick={() => onClickHandler(item.path)}
-            className={`cursor-pointer ${styles.navItem} ${
-              item.path === activeLink ? styles.active : ""
-            }`}
-          >
-            {item.name}
-          </a>
+          key={item.path}
+          onClick={() => onClickHandler(item.path)}
+          className={`cursor-pointer ${styles.navItem} ${item.path === activeLink ? styles.activeNavItem : ""}`}
+        >
+          {item.name}
+        </a>
         ))}
       </nav>
     </div>
