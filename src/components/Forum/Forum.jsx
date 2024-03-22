@@ -9,9 +9,10 @@ import { useAuth } from "../../hooks/UseAuth";
  *
  * @returns {JSX.Element} Компонент для отображения форума.
  */
+
 const Forum = () => {
-  const [comments, setComments] = useState([]);
-  const [error, setError] = useState(null);
+  const [comments, setComments] = useState([]); // Состояние для отображения комментариев
+  const [error, setError] = useState(null); // Состояние для отображения ошибок 
   const { isAuthenticated, logout, userId } = useAuth(); // Получаем userId из хука useAuth
   const [newCommentId, setNewCommentId] = useState(null); // Определяем newCommentId и функцию setNewCommentId
 

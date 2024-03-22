@@ -11,12 +11,12 @@ import { useAuth } from "../../hooks/UseAuth"; // Поменяли импорт
  * @returns {JSX.Element} Компонент формы регистрации пользователя.
  */
 const RegistrationForm = ({ closeModal }) => {
-  const { register } = useAuth(); // Используем хук useAuth для регистрации
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const { register } = useAuth(); // Используем хук useAuth для доступа к функции регистрации
+  const [name, setName] = useState(""); // Состояние для поля name
+  const [email, setEmail] = useState(""); // Состояние для поля email
+  const [password, setPassword] = useState(""); // Состояние для поля password
+  const [error, setError] = useState(""); // Состояние для отображения ошибок
+  const [successMessage, setSuccessMessage] = useState(""); // Состояние для отображения сообщения об успешной регистрации
 
   /**
    * Обработчик отправки формы регистрации.

@@ -11,11 +11,11 @@ import close from '../../../public/images/cross-small-svgrepo-com.svg';
  * @param {Function} closeModal - Функция для закрытия модального окна
  */
 const Modal = ({ closeModal }) => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const [name, setName] = useState(""); // Состояние для поля name
+  const [phone, setPhone] = useState(""); // Состояние для поля phone
+  const [email, setEmail] = useState(""); // Состояние для поля email
+  const [error, setError] = useState(""); // Состояние для отображения ошибок
+  const [successMessage, setSuccessMessage] = useState(""); // Состояние для отображения сообщения об успешной отправке заявки
 
   /**
    * Обработчик отправки формы заявки.

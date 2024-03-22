@@ -11,7 +11,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 
-// создаём функцию scrollToSection, которая будет прокручивать страницу к нужному якорю на странице Work
+// Функция scrollToSection, которая будет прокручивать страницу к нужному якорю на странице Visa
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {

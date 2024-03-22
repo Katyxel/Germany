@@ -18,6 +18,7 @@ const Navigation = () => {
    * Элементы навигации.
    * @type {Array<{ name: string, path: string }>}
    */
+  
   const navItems = [
     { name: "ВИЗА", path: "/visa" },
     { name: "РАБОТА", path: "/work" },

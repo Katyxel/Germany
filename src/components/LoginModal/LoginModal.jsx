@@ -5,14 +5,21 @@ import Image from "next/image";
 import close from "../../../public/images/cross-small-svgrepo-com.svg";
 import { useAuth } from "../../hooks/UseAuth";
 
+/**
+ * Компонент модального окна для входа.
+ * @param {Object} props - Свойства компонента.
+ * @param {Function} props.closeModal - Функция для закрытия модального окна.
+ * @returns {JSX.Element} Элемент модального окна для входа.
+ */
+
 const LoginModal = ({ closeModal }) => {
-  const { login } = useAuth(); // Используем хук useAuth
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isLoginDisabled, setIsLoginDisabled] = useState(false);
+  const { login } = useAuth(); // Используем хук useAuth для доступа к состоянию авторизации
+  const [email, setEmail] = useState("");  // Состояние для поля email
+  const [password, setPassword] = useState(""); // Состояние для поля password
+  const [error, setError] = useState("");  // Состояние для отображения ошибок
+  const [successMessage, setSuccessMessage] = useState(""); // Состояние для отображения сообщения об успешном входе
+  const [loading, setLoading] = useState(false); // Состояние для отображения состояния загрузки
+  const [isLoginDisabled, setIsLoginDisabled] = useState(false); // Состояние для блокировки кнопки входа во время загрузки
 
   const handleSubmit = async (e) => {
     e.preventDefault();

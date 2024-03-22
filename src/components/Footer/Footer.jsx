@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className={`bg-gray-100 text-gray-800 p-8 ${styles.footer}`}>
       <div className="flex flex-wrap justify-around container">
-        {/* Колонка 1 */}
         <div className="mb-4">
           <h2 className="text-lg font-semibold mb-2">Колонка 1</h2>
           <a
@@ -22,7 +21,6 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Колонка 2 */}
         <div className="mb-4">
           <h2 className="text-lg font-semibold mb-2">Колонка 2</h2>
           <a
@@ -39,7 +37,6 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Колонка 3 */}
         <div className="mb-4">
           <h2 className="text-lg font-semibold mb-2">Колонка 3</h2>
           <a

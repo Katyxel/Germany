@@ -6,6 +6,7 @@ import styles from "./Slider.module.css";
  * Компонент слайдера.
  * @returns {JSX.Element} Элемент слайдера.
  */
+
 const Slider = () => {
   const items = [
     {
@@ -50,8 +51,9 @@ const Slider = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleItems = items.slice(currentIndex, currentIndex + 4);
+    const [currentIndex, setCurrentIndex] = useState(0); // Состояние для индекса текущего элемента карусели
+    const visibleItems = items.slice(currentIndex, currentIndex + 4); // Отображаемые элементы карусели
+
 
   /**
    * Обработчик для переключения на следующий слайд.

@@ -22,6 +22,7 @@ const CommentInput = ({ addComment, setNewCommentId }) => {
    *
    * @param {object} e - Событие отправки формы.
    */
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (text.trim() === "") {
