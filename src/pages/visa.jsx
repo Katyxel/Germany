@@ -64,7 +64,10 @@ const VisaPage = () => {
 
       <Bannerdown />
 
-      <h2 id="all" className="text-3xl text-center font-bold text-gray-800 my-14">
+      <h2
+        id="all"
+        className="text-3xl text-center font-bold text-gray-800 my-14"
+      >
         Сопровождение получения национальной визы D при переезде в Германию:
       </h2>
       <ul style={{ listStyleType: "none", paddingLeft: 0 }}>

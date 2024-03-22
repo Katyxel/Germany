@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Image from 'next/image';
-import bann from '../../../public/images/germany.jpeg';
+import Image from "next/image";
+import bann from "../../../public/images/germany.jpeg";
 import styles from "./Banner.module.css";
 import Modal from "../Modal/Modal";
 
@@ -35,7 +35,10 @@ const Banner = () => {
       {/* Заголовок баннера */}
       <h2 className={styles["banner-text"]}>willkommen in Deutschland</h2>
       {/* Описание предложения */}
-      <p className={styles["banner-list"]}>Помогаем переехать по работе, учёбе, для изучения немецкого, по воссоединению семьи.</p>
+      <p className={styles["banner-list"]}>
+        Помогаем переехать по работе, учёбе, для изучения немецкого, по
+        воссоединению семьи.
+      </p>
       {/* Список преимуществ */}
       <ul className={styles["banner-descr"]}>
         <li>Консультации до, вовремя и после переезда</li>
@@ -45,7 +48,9 @@ const Banner = () => {
         <li>Языковая поддержка</li>
       </ul>
       {/* Кнопка для открытия модального окна */}
-      <button className={styles["apply-button"]} onClick={openModal}>Подать заявку</button>
+      <button className={styles["apply-button"]} onClick={openModal}>
+        Подать заявку
+      </button>
     </div>
   );
 };

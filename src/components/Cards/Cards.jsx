@@ -14,11 +14,11 @@ import {
 
 // создаём функцию scrollToSection, которая будет прокручивать страницу к нужному якорю на странице Work
 const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const CardsComponent = () => {
   return (
@@ -46,7 +46,12 @@ const CardsComponent = () => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <Button onClick={() => scrollToSection('programmers')} variant="ghost" colorScheme="red" className="mx-auto">
+          <Button
+            onClick={() => scrollToSection("programmers")}
+            variant="ghost"
+            colorScheme="red"
+            className="mx-auto"
+          >
             Подробнее
           </Button>
         </CardFooter>
@@ -72,7 +77,12 @@ const CardsComponent = () => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <Button onClick={() => scrollToSection('packege')} variant="ghost" colorScheme="red" className="mx-auto">
+          <Button
+            onClick={() => scrollToSection("packege")}
+            variant="ghost"
+            colorScheme="red"
+            className="mx-auto"
+          >
             Подробнее
           </Button>
         </CardFooter>
@@ -97,7 +107,12 @@ const CardsComponent = () => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <Button onClick={() => scrollToSection('proposes')} variant="ghost" colorScheme="red" className="mx-auto">
+          <Button
+            onClick={() => scrollToSection("proposes")}
+            variant="ghost"
+            colorScheme="red"
+            className="mx-auto"
+          >
             Подробнее
           </Button>
         </CardFooter>

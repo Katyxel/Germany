@@ -152,6 +152,4 @@ const AccordionComponent = () => {
   );
 };
 
-
-
 export default AccordionComponent;

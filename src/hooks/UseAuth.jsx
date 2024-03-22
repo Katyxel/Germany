@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 /**
  * Хук аутентификации пользователя.
@@ -17,32 +17,34 @@ export const useAuth = () => {
    * Проверяет, аутентифицирован ли пользователь и устанавливает соответствующие состояния.
    */
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const storedUserId = localStorage.getItem('userId');
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const storedUserId = localStorage.getItem("userId");
 
     // Выводим в консоль состояния для отладки
-    console.log('isLoggedIn:', isLoggedIn);
-    console.log('storedUserId:', storedUserId);
+    console.log("isLoggedIn:", isLoggedIn);
+    console.log("storedUserId:", storedUserId);
 
     const fetchData = async () => {
       try {
         setIsLoading(true);
 
-        if (isLoggedIn === 'true' && storedUserId) {
+        if (isLoggedIn === "true" && storedUserId) {
           setIsAuthenticated(true);
 
           // Получаем данные пользователя
-          const response = await axios.get('http://localhost:3004/logins');
-          console.log('Received response:', response);
+          const response = await axios.get("http://localhost:3004/logins");
+          console.log("Received response:", response);
           const userData = response.data;
-          console.log('userData:', userData); // Добавленный отладочный вывод
-          const user = userData.find(login => login.id === parseInt(storedUserId));
+          console.log("userData:", userData); // Добавленный отладочный вывод
+          const user = userData.find(
+            (login) => login.id === parseInt(storedUserId)
+          );
 
           if (user) {
-            console.log('User found:', user);
+            console.log("User found:", user);
             setUserId(user.id);
           } else {
-            console.error('Пользователь с ID', storedUserId, 'не найден.');
+            console.error("Пользователь с ID", storedUserId, "не найден.");
           }
         } else {
           setIsAuthenticated(false);
@@ -51,7 +53,7 @@ export const useAuth = () => {
 
         setIsLoading(false);
       } catch (error) {
-        console.error('Ошибка при получении данных о пользователях:', error);
+        console.error("Ошибка при получении данных о пользователях:", error);
         setIsLoading(false);
       }
     };
@@ -65,11 +67,11 @@ export const useAuth = () => {
    */
   const login = (id) => {
     setIsAuthenticated(true);
-    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem("isLoggedIn", "true");
 
     // Устанавливаем ID пользователя сразу
     setUserId(id);
-    localStorage.setItem('userId', id);
+    localStorage.setItem("userId", id);
   };
 
   /**
@@ -79,19 +81,22 @@ export const useAuth = () => {
    */
   const register = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:3004/logins', userData);
-      console.log('Registration successful:', response.data);
-      
+      const response = await axios.post(
+        "http://localhost:3004/logins",
+        userData
+      );
+      console.log("Registration successful:", response.data);
+
       // После успешной регистрации устанавливаем userId
       setUserId(response.data.id);
-      localStorage.setItem('userId', response.data.id);
+      localStorage.setItem("userId", response.data.id);
 
       // Вызываем функцию для автоматического входа после регистрации
       login(response.data.id);
 
       return true;
     } catch (error) {
-      console.error('Ошибка при регистрации:', error);
+      console.error("Ошибка при регистрации:", error);
       return false;
     }
   };
@@ -101,9 +106,9 @@ export const useAuth = () => {
    */
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem("isLoggedIn");
     setUserId(null);
-    localStorage.removeItem('userId');
+    localStorage.removeItem("userId");
   };
 
   // Возвращаем состояния аутентификации и функции для управления

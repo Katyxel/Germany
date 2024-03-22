@@ -1,14 +1,15 @@
 import React from "react";
-import { FaStar } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa";
 
 const Table = () => {
   return (
-        <div className="container bg-white">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 rounded">
-              <h2 className="text-xl font-semibold relative mb-2">
-              <FaStar className="h-5 w-5 text-yellow-500" />
-                <span className="pl-6"> Опытные специалисты</span></h2>
+    <div className="container bg-white">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="p-4 rounded">
+          <h2 className="text-xl font-semibold relative mb-2">
+            <FaStar className="h-5 w-5 text-yellow-500" />
+            <span className="pl-6"> Опытные специалисты</span>
+          </h2>
           <p className="text-gray-800">
             С вами работают опытные специалисты, которые самостоятельно прошли
             поступление, поиск работы и адаптацию в Германии. С нами переехали и
@@ -18,9 +19,8 @@ const Table = () => {
         </div>
         <div className="p-4 rounded">
           <h2 className="text-xl font-semibold relative mb-2">
-          <FaStar className="h-5 w-5 text-yellow-500" />
-            <span className="pl-6">
-            Подберем лучшее решение</span>
+            <FaStar className="h-5 w-5 text-yellow-500" />
+            <span className="pl-6">Подберем лучшее решение</span>
           </h2>
           <p className="text-gray-800">
             За годы работы по сопровождению переезда в Германию мы накопили
@@ -30,9 +30,9 @@ const Table = () => {
           </p>
         </div>
         <div className="p-4 rounded">
-        <h2 className="text-xl font-semibold relative mb-2">
-        <FaStar className="h-5 w-5 text-yellow-500" />
-              <span className="pl-6"></span>
+          <h2 className="text-xl font-semibold relative mb-2">
+            <FaStar className="h-5 w-5 text-yellow-500" />
+            <span className="pl-6"></span>
             Экономия времени, нервов и денег
           </h2>
           <p className="text-gray-800">
@@ -45,9 +45,10 @@ const Table = () => {
         </div>
 
         <div className="p-4 rounded">
-        <h2 className="text-xl font-semibold relative mb-2">
-        <FaStar className="h-5 w-5 text-yellow-500" />
-              <span className="pl-6"></span>Всегда на связи</h2>
+          <h2 className="text-xl font-semibold relative mb-2">
+            <FaStar className="h-5 w-5 text-yellow-500" />
+            <span className="pl-6"></span>Всегда на связи
+          </h2>
           <p className="text-gray-800">
             Часть нашей команды проживает в Германии постоянно, поэтому мы не
             понаслышке знаем, как долго отвечают разные фирмы и органы в
@@ -56,9 +57,9 @@ const Table = () => {
           </p>
         </div>
         <div className="p-4 rounded">
-        <h2 className="text-xl font-semibold relative mb-2">
-        <FaStar className="h-5 w-5 text-yellow-500" />
-              <span className="pl-6"></span>
+          <h2 className="text-xl font-semibold relative mb-2">
+            <FaStar className="h-5 w-5 text-yellow-500" />
+            <span className="pl-6"></span>
             Ориентация на результат
           </h2>
           <p className="text-gray-800">
@@ -69,9 +70,10 @@ const Table = () => {
         </div>
 
         <div className="p-4 rounded">
-        <h2 className="text-xl font-semibold relative mb-2">
-        <FaStar className="h-5 w-5 text-yellow-500" />
-              <span className="pl-6"></span>Удобная коммуникация</h2>
+          <h2 className="text-xl font-semibold relative mb-2">
+            <FaStar className="h-5 w-5 text-yellow-500" />
+            <span className="pl-6"></span>Удобная коммуникация
+          </h2>
           <p className="text-gray-800">
             Мы за то, чтобы клиентам было удобно общаться с нами. Поэтому для
             коммуникации используем мессенджеры — WhatsApp, Telegram, Viber, а

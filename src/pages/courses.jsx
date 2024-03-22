@@ -72,21 +72,25 @@ const Courses = () => {
         </h2>
       </div>
       <AccordionProposes />
-            {/* Отображение модального окна при условии, что showModal === true */}
-            {showModal && <Modal closeModal={closeModal} />}
-         {/* Кнопка для открытия модального окна */}
-         <div className="relative mb-8">
-  <button
-  className="mx-auto flex flex-col justify-center items-center
+      {/* Отображение модального окна при условии, что showModal === true */}
+      {showModal && <Modal closeModal={closeModal} />}
+      {/* Кнопка для открытия модального окна */}
+      <div className="relative mb-8">
+        <button
+          className="mx-auto flex flex-col justify-center items-center
     bg-gray-800 text-white py-4 px-4 rounded-lg cursor-pointer text-4xl font-bold bottom-8 hover:bg-yellow-500"
-    onClick={openModal}
-    style={{ marginBottom: "20px", marginTop: "20px", width: "auto", height: "auto" }}
-  >
-    Заказать услуги
-  </button>
+          onClick={openModal}
+          style={{
+            marginBottom: "20px",
+            marginTop: "20px",
+            width: "auto",
+            height: "auto",
+          }}
+        >
+          Заказать услуги
+        </button>
+      </div>
     </div>
-    </div>
-
   );
 };
 

@@ -13,11 +13,11 @@ import {
 
 // создаём функцию scrollToSection, которая будет прокручивать страницу к нужному якорю на странице Work
 const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const CardsVisa = () => {
   return (
@@ -34,14 +34,21 @@ const CardsVisa = () => {
           <Stack mt="6" spacing="3">
             <Heading size="md">Полное сопровождение</Heading>
             <Text>
-              Для тех, кто хочет поступить в немецкий ВУЗ, Studienkolleg, на среднее профессиональное образование в Германии
-              по программе Ausbildung, в бакалавриат, магистратуру или на подготовительные курсы при университете.
+              Для тех, кто хочет поступить в немецкий ВУЗ, Studienkolleg, на
+              среднее профессиональное образование в Германии по программе
+              Ausbildung, в бакалавриат, магистратуру или на подготовительные
+              курсы при университете.
             </Text>
           </Stack>
         </CardBody>
         <Divider />
         <CardFooter>
-          <Button onClick={() => scrollToSection('all')} variant="ghost" colorScheme="red" className="mx-auto">
+          <Button
+            onClick={() => scrollToSection("all")}
+            variant="ghost"
+            colorScheme="red"
+            className="mx-auto"
+          >
             Подробнее
           </Button>
         </CardFooter>
@@ -67,12 +74,17 @@ const CardsVisa = () => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <Button onClick={() => scrollToSection('proposes')} variant="ghost" colorScheme="red" className="mx-auto">
+          <Button
+            onClick={() => scrollToSection("proposes")}
+            variant="ghost"
+            colorScheme="red"
+            className="mx-auto"
+          >
             Подробнее
           </Button>
         </CardFooter>
       </Card>
-   </div>
+    </div>
   );
 };
 

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import CommentList from '../CommentList/CommentList';
-import CommentInput from '../CommentInput/CommentInput';
-import axios from 'axios';
-import { useAuth } from '../../hooks/UseAuth';
+import React, { useState, useEffect } from "react";
+import CommentList from "../CommentList/CommentList";
+import CommentInput from "../CommentInput/CommentInput";
+import axios from "axios";
+import { useAuth } from "../../hooks/UseAuth";
 
 /**
  * Компонент для отображения форума с комментариями и возможностью добавления новых комментариев.
- * 
+ *
  * @returns {JSX.Element} Компонент для отображения форума.
  */
 const Forum = () => {
@@ -24,20 +24,24 @@ const Forum = () => {
 
   /**
    * Функция для добавления нового комментария.
-   * 
+   *
    * @param {string} text - Текст нового комментария.
    */
-  const addComment = async (text) => { // Убираем параметр userId из addComment
+  const addComment = async (text) => {
+    // Убираем параметр userId из addComment
     try {
       // Создаем новый комментарий
       const newComment = {
         text,
         date: new Date().toISOString(),
-        userId: userId // Используем userId для создания комментария
+        userId: userId, // Используем userId для создания комментария
       };
 
       // Отправляем новый комментарий на сервер
-      const response = await axios.post('http://localhost:3004/comments', newComment);
+      const response = await axios.post(
+        "http://localhost:3004/comments",
+        newComment
+      );
 
       // Обновляем состояние комментариев
       setComments([...comments, response.data]);
@@ -49,7 +53,7 @@ const Forum = () => {
       setError("Произошла ошибка при добавлении комментария");
     }
   };
-  
+
   return (
     <div>
       <header className="bg-gray-800 text-white py-4 mt-6">
@@ -59,24 +63,31 @@ const Forum = () => {
       </header>
       <main>
         <div className="container mx-auto">
-          <h1 className="text-3xl font-bold my-4 text-center">Комментарии и вопросы об иммиграции в Германию</h1>
+          <h1 className="text-3xl font-bold my-4 text-center">
+            Комментарии и вопросы об иммиграции в Германию
+          </h1>
           <div className="flex">
             <div className="main-content">
-              <CommentList comments={comments} setComments={setComments} isAuthenticated={isAuthenticated} />
+              <CommentList
+                comments={comments}
+                setComments={setComments}
+                isAuthenticated={isAuthenticated}
+              />
               {isAuthenticated ? (
                 <div>
-                  <CommentInput addComment={(text) => addComment(text, userId)} setNewCommentId={setNewCommentId} />
-                  <button 
-  onClick={handleLogout} 
-  className="bg-red-800 hover:bg-gray-500 text-white py-1 px-2 rounded-md"
->
- Выйти
-</button>
+                  <CommentInput
+                    addComment={(text) => addComment(text, userId)}
+                    setNewCommentId={setNewCommentId}
+                  />
+                  <button
+                    onClick={handleLogout}
+                    className="bg-red-800 hover:bg-gray-500 text-white py-1 px-2 rounded-md"
+                  >
+                    Выйти
+                  </button>
                 </div>
               ) : (
-                <div>
-                  {error && <p className="text-red-500">{error}</p>}
-                </div>
+                <div>{error && <p className="text-red-500">{error}</p>}</div>
               )}
             </div>
           </div>
@@ -84,6 +95,6 @@ const Forum = () => {
       </main>
     </div>
   );
-}
+};
 
 export default Forum;

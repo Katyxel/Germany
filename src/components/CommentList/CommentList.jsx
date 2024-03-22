@@ -4,7 +4,7 @@ import { useAuth } from "../../hooks/UseAuth";
 
 /**
  * Компонент для отображения списка комментариев.
- * 
+ *
  * @param {Object} props - Свойства компонента.
  * @param {Array} props.comments - Массив комментариев.
  * @param {Function} props.setComments - Функция для установки комментариев.
@@ -15,8 +15,8 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
   const { userId } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); // стейт для ошибки
-  const [editingCommentId, setEditingCommentId] = useState(null);// стейт для установки id редактируемого комментария 
-  const [editedCommentText, setEditedCommentText] = useState("");// стект для 
+  const [editingCommentId, setEditingCommentId] = useState(null); // стейт для установки id редактируемого комментария
+  const [editedCommentText, setEditedCommentText] = useState(""); // стект для
 
   useEffect(() => {
     /**
@@ -38,7 +38,7 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
 
   /**
    * Обработчик нажатия на кнопку редактирования комментария.
-   * 
+   *
    * @param {number} id - Идентификатор редактируемого комментария.
    */
   const handleEdit = (id) => {
@@ -72,7 +72,7 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
 
   /**
    * Обработчик нажатия на кнопку удаления комментария.
-   * 
+   *
    * @param {number} id - Идентификатор удаляемого комментария.
    */
   const handleDelete = async (id) => {
@@ -120,13 +120,24 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
                 {isAuthenticated && userId === comment.userId && (
                   <div>
                     {editingCommentId === comment.id ? (
-                      <button className="bg-green-500 text-white py-1 px-2 rounded-md mr-2" onClick={handleSaveEdit}>Сохранить</button>
+                      <button
+                        className="bg-green-500 text-white py-1 px-2 rounded-md mr-2"
+                        onClick={handleSaveEdit}
+                      >
+                        Сохранить
+                      </button>
                     ) : (
-                      <button className="bg-gray-500 text-white py-1 px-2 rounded-md mr-2" onClick={() => handleEdit(comment.id)}>
+                      <button
+                        className="bg-gray-500 text-white py-1 px-2 rounded-md mr-2"
+                        onClick={() => handleEdit(comment.id)}
+                      >
                         Изменить
                       </button>
                     )}
-                    <button className="bg-red-500 text-white py-1 px-2 rounded-md" onClick={() => handleDelete(comment.id)}>
+                    <button
+                      className="bg-red-500 text-white py-1 px-2 rounded-md"
+                      onClick={() => handleDelete(comment.id)}
+                    >
                       Удалить
                     </button>
                   </div>

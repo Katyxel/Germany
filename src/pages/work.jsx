@@ -13,23 +13,22 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 
-
 const WorkPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-/**
+  /**
    * Функция для открытия модального окна.
    */
-const openModal = () => {
-  setShowModal(true);
-};
+  const openModal = () => {
+    setShowModal(true);
+  };
 
-/**
- * Функция для закрытия модального окна.
- */
-const closeModal = () => {
-  setShowModal(false);
-};
+  /**
+   * Функция для закрытия модального окна.
+   */
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="py-10 container">
@@ -48,13 +47,18 @@ const closeModal = () => {
       {/* Вставляем компонент карточек */}
       <CardsComponent />
       <button
-  className="mx-auto flex flex-col justify-center items-center
+        className="mx-auto flex flex-col justify-center items-center
     bg-gray-800 text-white py-4 px-4 rounded-lg cursor-pointer text-2xl font-bold hover:bg-yellow-500"
-    onClick={openModal}
-    style={{ marginBottom: "20px", marginTop: "20px", width: "auto", height: "auto" }}
-  >
-    Получить консультацию
-  </button>
+        onClick={openModal}
+        style={{
+          marginBottom: "20px",
+          marginTop: "20px",
+          width: "auto",
+          height: "auto",
+        }}
+      >
+        Получить консультацию
+      </button>
       <h2 className="text-5xl text-center font-bold text-gray-800 my-14">
         С Вами работают
       </h2>
@@ -132,24 +136,26 @@ const closeModal = () => {
           оформлением страховки в Германию абсолютно бесплатно!
         </ListItem>
       </UnorderedList>
-      
+
       <div className="mx-auto flex flex-col justify-center items-center">
         <div className="bg-gray-700 w-full flex justify-center items-center p-8 mt-10">
-  <UnorderedList className="text-white text-xl font-bold">
-        <ListItem>
-        Нашим клиентам бесплатно оформим обязаиетльные в Германии медицинские страховки через государственную страховую компанию TK
-        </ListItem>
-        <ListItem>
-        Каждый запрос на услугу рассматривается отдельно в зависимости от кейса.
-        </ListItem>
-        <ListItem>
-        При оплате в рублях цены по курсу на день оплаты.
-        </ListItem>
-      </UnorderedList>
+          <UnorderedList className="text-white text-xl font-bold">
+            <ListItem>
+              Нашим клиентам бесплатно оформим обязаиетльные в Германии
+              медицинские страховки через государственную страховую компанию TK
+            </ListItem>
+            <ListItem>
+              Каждый запрос на услугу рассматривается отдельно в зависимости от
+              кейса.
+            </ListItem>
+            <ListItem>
+              При оплате в рублях цены по курсу на день оплаты.
+            </ListItem>
+          </UnorderedList>
+        </div>
       </div>
-      </div> 
 
-<div className="mx-auto flex flex-col justify-center items-center">
+      <div className="mx-auto flex flex-col justify-center items-center">
         <div className="bg-yellow-500 w-full flex justify-center items-center p-8 mt-10">
           <h2 id="proposes" className="text-gray-800 text-4xl font-bold">
             ОТДЕЛЬНЫЕ УСЛУГИ
@@ -165,22 +171,25 @@ const closeModal = () => {
       </div>
       <AccordionProposes />
 
-            {/* Отображение модального окна при условии, что showModal === true */}
-            {showModal && <Modal closeModal={closeModal} />}
-         {/* Кнопка для открытия модального окна */}
-         <div className="relative mb-8">
-  <button
-  className="mx-auto flex flex-col justify-center items-center
+      {/* Отображение модального окна при условии, что showModal === true */}
+      {showModal && <Modal closeModal={closeModal} />}
+      {/* Кнопка для открытия модального окна */}
+      <div className="relative mb-8">
+        <button
+          className="mx-auto flex flex-col justify-center items-center
     bg-gray-800 text-white py-4 px-4 rounded-lg cursor-pointer text-4xl font-bold bottom-8 hover:bg-yellow-500"
-    onClick={openModal}
-    style={{ marginBottom: "20px", marginTop: "20px", width: "auto", height: "auto" }}
-  >
-    Заказать услуги
-  </button>
-</div>
-</div>
-
-    
+          onClick={openModal}
+          style={{
+            marginBottom: "20px",
+            marginTop: "20px",
+            width: "auto",
+            height: "auto",
+          }}
+        >
+          Заказать услуги
+        </button>
+      </div>
+    </div>
   );
 };
 
