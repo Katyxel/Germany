@@ -21,8 +21,8 @@ export const useAuth = () => {
     const storedUserId = localStorage.getItem("userId");
 
     // Выводим в консоль состояния для отладки
-    console.log("isLoggedIn:", isLoggedIn);
-    console.log("storedUserId:", storedUserId);
+    // console.log("isLoggedIn:", isLoggedIn);
+    // console.log("storedUserId:", storedUserId);
 
     const fetchData = async () => {
       try {
