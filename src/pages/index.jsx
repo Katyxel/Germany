@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Banner from "../components/Banner/Banner";
-import Bannerdown from "../components/BannerDown/BannerDown";
+import Bannerdown from "../components/Bannerdown/Bannerdown";
 import Slider from "../components/Slider/Slider";
 import Table from "../components/Table/Table";
 
@@ -14,8 +14,6 @@ const Home = () => (
     </Head>
     <main>
       <div className="container">
-        {" "}
-        {/* Добавлен контейнер здесь */}
         <Banner />
         <h2 className="text-5xl text-center font-bold text-gray-800 my-14">
           Почему мы

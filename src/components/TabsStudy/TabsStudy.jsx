@@ -2,7 +2,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 const TabsStudy = () => {
   return (
-    <Tabs isFitted variant="enclosed" colorScheme="red">
+    <Tabs isFitted variant="enclosed" colorScheme="red" className="container">
       <TabList mb="1em">
         <Tab fontWeight="bold">Базовый — 1700€</Tab>
         <Tab fontWeight="bold">Комфорт — 2200€</Tab>

@@ -1,10 +1,8 @@
 .banner {
   position: relative;
-  max-width: 1230px;
   display: flex;
   width: 100%; 
-  margin: 10px auto;
-  padding: 0 20px; 
+  margin: 10px 0;
   justify-content: center; /* Выравниваем содержимое по горизонтали */
   align-items: center; /* Выравниваем содержимое по вертикали */
 }
@@ -17,7 +15,7 @@
   .banner-text {
     position: absolute;
     top: 5%; 
-    font-size: 4.4vw;
+    font-size: 4.2vw;
     padding: 0;
     text-transform: uppercase; 
     font-weight: bold;

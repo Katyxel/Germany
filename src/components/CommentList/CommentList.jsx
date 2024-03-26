@@ -14,14 +14,12 @@ import { useAuth } from "../../hooks/UseAuth";
 const CommentList = ({ comments, setComments, isAuthenticated }) => {
   const { userId } = useAuth();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // стейт для ошибки
-  const [editingCommentId, setEditingCommentId] = useState(null); // стейт для установки id редактируемого комментария
-  const [editedCommentText, setEditedCommentText] = useState(""); // стект для
+  const [error, setError] = useState(null);
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [editedCommentText, setEditedCommentText] = useState("");
+  const [users, setUsers] = useState([]); // Массив пользователей из logins
 
   useEffect(() => {
-    /**
-     * Функция для загрузки комментариев с сервера.
-     */
     const fetchComments = async () => {
       try {
         const response = await axios.get("http://localhost:3004/comments");
@@ -33,34 +31,46 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
       }
     };
 
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("http://localhost:3004/logins");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Произошла ошибка при загрузке пользователей:", error);
+      }
+    };
+
     fetchComments();
+    fetchUsers();
   }, [setComments]);
 
-  /**
-   * Обработчик нажатия на кнопку редактирования комментария.
-   *
-   * @param {number} id - Идентификатор редактируемого комментария.
-   */
+  const getUserNameById = (userId) => {
+    const user = users.find((user) => user.id === userId);
+    return user ? user.name : "Unknown";
+  };
+
   const handleEdit = (id) => {
     setEditingCommentId(id);
     const commentToEdit = comments.find((comment) => comment.id === id);
     setEditedCommentText(commentToEdit.text);
   };
 
-  /**
-   * Функция для сохранения изменений редактируемого комментария.
-   */
   const handleSaveEdit = async () => {
     try {
-      const currentDate = new Date().toISOString(); // Получаем текущую дату и время
+      const currentDate = new Date().toISOString();
+      const user = users.find((user) => user.id === userId);
+      const userName = user ? user.name : "Unknown";
+      
       await axios.put(`http://localhost:3004/comments/${editingCommentId}`, {
         text: editedCommentText,
-        userId: userId, // Передаем текущий userId
-        date: currentDate, // Обновляем дату изменения комментария
+        userId: userId,
+        userName: userName, // Добавляем имя пользователя
+        date: currentDate,
       });
+  
       const updatedComments = comments.map((comment) =>
         comment.id === editingCommentId
-          ? { ...comment, text: editedCommentText, date: currentDate } // Обновляем комментарий с новым текстом и датой изменения
+          ? { ...comment, text: editedCommentText, userName: userName, date: currentDate }
           : comment
       );
       setComments(updatedComments);
@@ -69,21 +79,8 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
       console.error("Произошла ошибка при сохранении изменений:", error);
     }
   };
-
-  /**
-   * Обработчик нажатия на кнопку удаления комментария.
-   *
-   * @param {number} id - Идентификатор удаляемого комментария.
-   */
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3004/comments/${id}`);
-      setComments(comments.filter((comment) => comment.id !== id));
-    } catch (error) {
-      console.error("Произошла ошибка при удалении комментария:", error);
-    }
-  };
-
+  
+  
   if (loading) {
     return <p>Загрузка комментариев...</p>;
   }
@@ -109,9 +106,14 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
                       onChange={(e) => setEditedCommentText(e.target.value)}
                     />
                   ) : (
-                    <p className="text-gray-800 font-semibold">
-                      {comment.text}
-                    </p>
+                    <>
+                      <p className="text-gray-800 font-semibold">
+                        {comment.text}
+                      </p>
+                      <p className="text-gray-600">
+                       Автор: {getUserNameById(comment.userId)}
+                      </p>
+                    </>
                   )}
                   <p className="text-gray-800">
                     {new Date(comment.date).toLocaleDateString("ru-RU")}
@@ -133,18 +135,19 @@ const CommentList = ({ comments, setComments, isAuthenticated }) => {
                       >
                         Изменить
                       </button>
-                    )}
-                    <button
-                      className="bg-red-500 text-white py-1 px-2 rounded-md"
-                      onClick={() => handleDelete(comment.id)}
-                    >
-                      Удалить
-                    </button>
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
+          )}
+          <button
+            className="bg-red-500 text-white py-1 px-2 rounded-md"
+            onClick={() => handleDelete(comment.id)}
+          >
+            Удалить
+          </button>
+        </div>
+      )}
+    </div>
+  </li>
+))}
+
         </ul>
       )}
     </div>

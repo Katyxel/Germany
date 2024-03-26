@@ -4,64 +4,64 @@ import CommentInput from "../CommentInput/CommentInput";
 import axios from "axios";
 import { useAuth } from "../../hooks/UseAuth";
 
-/**
- * Компонент для отображения форума с комментариями и возможностью добавления новых комментариев.
- *
- * @returns {JSX.Element} Компонент для отображения форума.
- */
-
 const Forum = () => {
-  const [comments, setComments] = useState([]); // Состояние для отображения комментариев
-  const [error, setError] = useState(null); // Состояние для отображения ошибок 
-  const { isAuthenticated, logout, userId } = useAuth(); // Получаем userId из хука useAuth
-  const [newCommentId, setNewCommentId] = useState(null); // Определяем newCommentId и функцию setNewCommentId
+  const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
+  const { isAuthenticated, logout, userId } = useAuth();
+  const [newCommentId, setNewCommentId] = useState(null);
+  const [users, setUsers] = useState([]); // Добавляем состояние для хранения списка пользователей
 
-  /**
-   * Обработчик выхода пользователя из системы.
-   */
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("http://localhost:3004/logins");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Произошла ошибка при загрузке пользователей:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []); // Пустой массив зависимостей, чтобы запрос выполнялся только один раз
+
   const handleLogout = () => {
-    logout(); // Вызываем функцию logout
+    logout();
   };
 
-  /**
-   * Функция для добавления нового комментария.
-   *
-   * @param {string} text - Текст нового комментария.
-   */
   const addComment = async (text) => {
-    // Убираем параметр userId из addComment
     try {
-      // Создаем новый комментарий
+      const user = users.find((user) => user.id === userId); // Используем полученный список пользователей
+      const userName = user ? user.name : "Unknown";
+  
       const newComment = {
         text,
         date: new Date().toISOString(),
-        userId: userId, // Используем userId для создания комментария
+        userId: userId,
+        userName: userName
       };
-
-      // Отправляем новый комментарий на сервер
+  
       const response = await axios.post(
         "http://localhost:3004/comments",
         newComment
       );
-
-      // Обновляем состояние комментариев
+  
       setComments([...comments, response.data]);
-
-      // Устанавливаем новый ID комментария
+  
       setNewCommentId(response.data.id);
     } catch (error) {
       console.error("Произошла ошибка при добавлении комментария:", error);
       setError("Произошла ошибка при добавлении комментария");
     }
   };
+  
 
   return (
     <div>
-      <header className="bg-gray-800 text-white py-4 mt-6">
+      <div className="bg-gray-800 text-white py-4 mt-6">
         <div className="container mx-auto mt-8">
           <h1 className="text-4xl font-bold text-center">ФОРУМ</h1>
         </div>
-      </header>
+      </div>
       <main>
         <div className="container mx-auto">
           <h1 className="text-3xl font-bold my-4 text-center">

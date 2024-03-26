@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Bannerdown from "../components/BannerDown/BannerDown";
+import Bannerdown from "../components/Bannerdown/Bannerdown";
 import Slider from "../components/Slider/Slider";
 import CardsVisa from "../components/CardsVisa/CardsVisa";
 import AccordionProposes from "../components/AccordionProposes/AccordionProposes";
@@ -31,20 +31,21 @@ const VisaPage = () => {
   };
 
   return (
-    <div className="py-10 container">
-      <div className="mx-auto flex flex-col justify-center items-center">
-        <div className="bg-gray-800 w-full flex justify-center items-center p-8">
-          <h1 className="text-white text-4xl font-bold">
+    <div className="container">
+      <div className="bg-gray-800 text-white py-4 mt-6">
+        <div className="container mx-auto mt-8">
+          <h1 className="text-4xl font-bold text-center">
             СОПРОВОЖДЕНИЕ ПОДАЧИ НА НАЦИОНАЛЬНУЮ ВИЗУ
           </h1>
         </div>
-        <div className="bg-white w-full p-8">
-          <p className="text-gray-800 text-xl text-center">
-            Поможем с подготовкой документов, составим выигрышное мотивационное
-            письмо, резюме по стандартам посольства и подготовим к интервью так,
-            чтобы максимально снизить риски отказа.
-          </p>
-        </div>
+      </div>
+
+      <div className="bg-white w-full p-8">
+        <p className="text-gray-800 text-xl text-center">
+          Поможем с подготовкой документов, составим выигрышное мотивационное
+          письмо, резюме по стандартам посольства и подготовим к интервью так,
+          чтобы максимально снизить риски отказа.
+        </p>
       </div>
 
       <CardsVisa />
@@ -98,7 +99,7 @@ const VisaPage = () => {
         </AbsoluteCenter>
       </Box>
 
-      <div className="my-4">
+      <div className="my-4 container">
         <p className="relative text-xl font-bold my-4">
           Трудовая виза / голубая карта / виза айтишников / виза научных
           сотрудников / виза для поиска работы и признания образования / виза

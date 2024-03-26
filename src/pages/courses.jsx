@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TabsCourses from "../components/TabsCourses/TabsCourses";
-import Bannerdown from "../components/BannerDown/BannerDown";
+import Bannerdown from "../components/Bannerdown/Bannerdown";
 import Modal from "../components/Modal/Modal";
 import Slider from "../components/Slider/Slider";
 import AccordionProposes from "../components/AccordionProposes/AccordionProposes";
@@ -23,20 +23,21 @@ const Courses = () => {
   };
 
   return (
-    <div className="py-10 container">
-      <div className="mx-auto flex flex-col justify-center items-center">
-        <div className="bg-gray-800 w-full flex justify-center items-center p-8">
-          <h1 className="text-white text-4xl font-bold">
-            ЧАСТНЫЕ ЯЗЫКОВЫЕ ШКОЛЫ-ПАРТНЕРЫ
+    <div className="container">
+      <div className="bg-gray-800 text-white py-4 mt-6">
+        <div className="container mx-auto mt-8">
+          <h1 className="text-4xl font-bold text-center">
+            ЧАСТНЫЕ ЯЗЫКОВЫЕ ШКОЛЫ-ПАРТНЁРЫ
           </h1>
         </div>
-        <div className="bg-white w-full p-8">
-          <p className="text-gray-800 text-xl text-center">
-            LifeInGermany напрямую сотрудничает с языковыми школами Германии. Мы
-            поможем вам подобрать школу, собрать необходимые документы, подать
-            заявку на курс и получить визу.
-          </p>
-        </div>
+      </div>
+
+      <div className="bg-white w-full p-8">
+        <p className="text-gray-800 text-xl text-center">
+          LifeInGermany напрямую сотрудничает с языковыми школами Германии. Мы
+          поможем вам подобрать школу, собрать необходимые документы, подать
+          заявку на курс и получить визу.
+        </p>
       </div>
 
       <div className="mt-4 mb-8 text-center">
@@ -61,7 +62,6 @@ const Courses = () => {
       >
         Подать заявку
       </button>
-      <Bannerdown />
       <h2 className="text-5xl text-center font-bold text-gray-800 my-14">
         С Вами работают
       </h2>

@@ -1,0 +1,58 @@
+.container {
+    max-width: 1230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .itemContainer {
+    width: 300px;
+    height: 400px;
+    margin: 5px;
+    border-radius: 12px;
+  }
+  
+  .itemContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  
+  .buttonContainer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .buttonLeft,
+  .buttonRight {
+    background: #4e4c4c; /* Серый цвет фона */
+    border: 2px solid #ccc; /* Серая обводка */
+    border-radius: 50%; /* Скругленные углы для создания круглой формы */
+    padding: 8px; /* Отступ внутри кнопок */
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s; /* Плавное изменение цвета фона */
+  }
+  
+  .buttonLeft:hover,
+  .buttonRight:hover {
+    background-color: #999; /* Изменение цвета фона при наведении */
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: white; /* Белый цвет для иконок */
+  }
+  
+  

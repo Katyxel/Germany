@@ -29,7 +29,7 @@ const App = ({ Component, pageProps }) => {
             }
           `}</style>
         </Head>
-        <main className={montserratStyles.className}>
+        <main className={`container ${montserratStyles.className}`}>
           <Navigation />
           <Component {...pageProps} />
           <Footer />
