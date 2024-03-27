@@ -1,39 +1,21 @@
 import React, { useState } from "react";
+import CategorySelect from "../Select/Select";
 
-/**
- * Компонент для ввода комментария.
- *
- * Этот компонент позволяет пользователю вводить текст комментария и отправлять его.
- * После отправки комментария, очищает поле ввода.
- *
- * @param {object} props - Свойства компонента.
- * @param {function} props.addComment - Функция для добавления комментария.
- * @param {function} props.setNewCommentId - Функция для установки ID нового комментария.
- * @returns {ReactNode} - Возвращает элемент инпута после добавления комментария.
- */
 const CommentInput = ({ addComment, setNewCommentId }) => {
   const [text, setText] = useState("");
+  const [category, setCategory] = useState(""); // Добавляем состояние для хранения выбранной категории
 
-  /**
-   * Обработчик отправки формы.
-   *
-   * Проверяет, что введенный текст не пустой.
-   * Добавляет комментарий при непустом вводе и очищает поле ввода.
-   *
-   * @param {object} e - Событие отправки формы.
-   */
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (text.trim() === "") {
-      return; // Не добавляем пустые комментарии
+    if (text.trim() === "" || category === "") {
+      return; // Не добавляем пустые комментарии или категории
     }
-    const newComment = await addComment(text);
+    const newComment = await addComment(text, category); // Передаем категорию в функцию добавления комментария
     if (newComment && newComment.id) {
-      // Проверяем, что newComment не undefined и имеет свойство id
-      setNewCommentId(newComment.id); // Устанавливаем ID нового комментария
+      setNewCommentId(newComment.id);
     }
-    setText(""); // Очищаем поле ввода после добавления комментария
+    setText("");
+    setCategory(""); // Очищаем состояние категории после добавления комментария
   };
 
   return (
@@ -45,12 +27,19 @@ const CommentInput = ({ addComment, setNewCommentId }) => {
         rows={4}
         className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:border-gray-700"
       ></textarea>
-      <button
-        type="submit"
-        className="my-4 bg-yellow-500 focus:bg-gray-700 text-white px-3 py-1 rounded"
-      >
-        Добавить комментарий
-      </button>
+      <div className="flex flex-col">
+        <CategorySelect
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="bg-yellow-500 focus:bg-gray-700 text-white px-3 py-1 rounded my-4"
+          style={{ width: "fit-content" }} // Устанавливаем ширину по содержимому
+        >
+          Добавить комментарий
+        </button>
+      </div>
     </form>
   );
 };

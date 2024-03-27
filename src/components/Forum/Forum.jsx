@@ -6,8 +6,8 @@ import { useAuth } from "../../hooks/UseAuth";
 
 const Forum = () => {
   const [comments, setComments] = useState([]);
-  const [error, setError] = useState(null);
-  const { isAuthenticated, logout, userId } = useAuth();
+  const [error, setError] = useState(null); // состояние для ошибки
+  const { isAuthenticated, logout, userId } = useAuth(); // состояние для отслеживания аутентификации
   const [newCommentId, setNewCommentId] = useState(null);
   const [users, setUsers] = useState([]); // Добавляем состояние для хранения списка пользователей
 
@@ -22,38 +22,40 @@ const Forum = () => {
     };
 
     fetchUsers();
-  }, []); // Пустой массив зависимостей, чтобы запрос выполнялся только один раз
+  }, []);
 
   const handleLogout = () => {
     logout();
   };
 
-  const addComment = async (text) => {
+  const addComment = async (text, category) => {
+    // Добавляем параметр category в функцию добавления комментария
     try {
-      const user = users.find((user) => user.id === userId); // Используем полученный список пользователей
+      const user = users.find((user) => user.id === userId);
       const userName = user ? user.name : "Unknown";
-  
+
       const newComment = {
         text,
         date: new Date().toISOString(),
         userId: userId,
-        userName: userName
+        userName: userName,
+        category: category, // Сохраняем выбранную категорию в комментарии
       };
-  
+
       const response = await axios.post(
         "http://localhost:3004/comments",
         newComment
       );
-  
+
       setComments([...comments, response.data]);
-  
+
       setNewCommentId(response.data.id);
+      return response.data; // Возвращаем добавленный комментарий
     } catch (error) {
       console.error("Произошла ошибка при добавлении комментария:", error);
       setError("Произошла ошибка при добавлении комментария");
     }
   };
-  
 
   return (
     <div>
@@ -63,33 +65,37 @@ const Forum = () => {
         </div>
       </div>
       <main>
-        <div className="container mx-auto">
-          <h1 className="text-3xl font-bold my-4 text-center">
+        <div className="container">
+          <h2 className="text-3xl font-bold my-4 text-center">
             Комментарии и вопросы об иммиграции в Германию
-          </h1>
-          <div className="flex">
-            <div className="main-content">
-              <CommentList
-                comments={comments}
-                setComments={setComments}
-                isAuthenticated={isAuthenticated}
-              />
-              {isAuthenticated ? (
-                <div>
-                  <CommentInput
-                    addComment={(text) => addComment(text, userId)}
-                    setNewCommentId={setNewCommentId}
-                  />
-                  <button
-                    onClick={handleLogout}
-                    className="bg-red-800 hover:bg-gray-500 text-white py-1 px-2 rounded-md"
-                  >
-                    Выйти
-                  </button>
-                </div>
-              ) : (
-                <div>{error && <p className="text-red-500">{error}</p>}</div>
-              )}
+          </h2>
+          <div className="flex justify-center">
+            <div className="w-full max-w-6xl">
+              <div className="main-content">
+                <CommentList
+                  comments={comments}
+                  setComments={setComments}
+                  isAuthenticated={isAuthenticated}
+                />
+                {isAuthenticated ? (
+                  <div>
+                    <CommentInput
+                      addComment={(text, category) =>
+                        addComment(text, category)
+                      } // Передаем категорию в функцию добавления комментария
+                      setNewCommentId={setNewCommentId}
+                    />
+                    <button
+                      onClick={handleLogout}
+                      className="bg-red-800 hover:bg-gray-500 text-white py-1 px-2 rounded-md"
+                    >
+                      Выйти
+                    </button>
+                  </div>
+                ) : (
+                  <div>{error && <p className="text-red-500">{error}</p>}</div>
+                )}
+              </div>
             </div>
           </div>
         </div>
